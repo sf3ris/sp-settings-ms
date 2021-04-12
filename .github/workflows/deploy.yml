@@ -25,11 +25,11 @@ jobs:
           architecture: 'x64'
       # You can test your matrix by printing the current Python version
       - name: Build project
-        run: pip install --no-cache-dir -r docker/requirements.txt
+        run: pip install --no-cache-dir -r requirements.txt
       - name: Setup Environment
         run: |
           mv app/.env.example app/.env
-          sed -i "s/::AUTH_HOST/${{ secrets.AUTH_HOST}}/g" app/.env
+          sed -i "s/:AUTH_HOST/${{ secrets.AUTH_HOST}}/g" app/.env
           sed -i "s/:REDIS_HOST/redis/g" app/.env
       - name: Upload project via ssh
         uses: appleboy/scp-action@master

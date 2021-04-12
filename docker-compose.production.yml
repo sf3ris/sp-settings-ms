@@ -13,7 +13,7 @@ services:
       - redis
     networks:
       sp-settings-net:
-        ipv4_address: 172.24.0.3
+        ipv4_address: 172.25.0.3
   redis:
     image: redis
     command: redis-server --appendonly yes
@@ -23,7 +23,7 @@ services:
       - "6379:6379"
     networks:
       sp-settings-net:
-        ipv4_address: 172.24.0.2
+        ipv4_address: 172.25.0.2
 
 networks:
   sp-settings-net:

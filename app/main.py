@@ -6,12 +6,13 @@ from app.storage import Storage
 from starlette.middleware.authentication import AuthenticationMiddleware
 from starlette.requests import HTTPConnection
 from starlette.responses import Response, PlainTextResponse
+import os
 
 app = FastAPI()
 app.include_router(settings_router)
 
 origins = [
-    "http://localhost:8080",
+    os.environ.get("TRUSTED_HOST", "http://localhost"),
 ]
 app.add_middleware(
     CORSMiddleware,

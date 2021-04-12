@@ -14,6 +14,8 @@ class CustomAuthMiddleware(AuthenticationBackend):
     async def authenticate(
             self, request: HTTPConnection
     ) -> typing.Optional[typing.Tuple["AuthCredentials", "BaseUser"]]:
+        if request.get('method') == 'OPTIONS':
+            return
         if "Authorization" not in request.headers:
             raise AuthenticationError('Header not found')
         auth = request.headers['Authorization']

@@ -2,7 +2,7 @@ version: "3"
 services:
   sp-settings:
     container_name: sp-settings
-    build: ./docker
+    build: ./
     ports:
       - "8000:8000"
     volumes:

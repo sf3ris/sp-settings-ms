@@ -54,4 +54,4 @@ jobs:
             mv settings_microservices settings_microservices.old 2> /dev/null;
             mv ms_settings settings_microservices;
             cd settings_microservices;
-            docker-compose up -f docker-compose.production.yml -d --build --force-recreate;
+            docker-compose -f docker-compose.production.yml up -d --build --force-recreate;
